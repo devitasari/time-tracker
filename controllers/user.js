@@ -23,7 +23,7 @@ class UserController {
             const isPass = compareHash(req.body.password, user.password)
             if (!isPass) throw {message: 'Email/Password is wrong'}
             let payload = {
-                id: user._id,
+                id: user.id,
                 username: user.username
             }
             let token = generateToken(payload)
