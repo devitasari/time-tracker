@@ -6,7 +6,6 @@ function authentication(req, res, next) {
 
     try {
         let decodedToken = verifyToken(req.headers.token)
-        console.log(decodedToken, '>>>>');
         User.findByPk(decodedToken.id)
         .then(user => {
             if (!user) next({ status: 401, message: 'Authentication Failed' })
